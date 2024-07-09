@@ -1,1 +1,1 @@
-export { Form } from "./form";
+export { BMIForm } from "./bmi-form";
