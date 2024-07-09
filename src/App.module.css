@@ -4,6 +4,8 @@
 }
 
 .rightBox {
+  max-width: 36rem;
+
   display: flex;
   flex-direction: column;
   gap: 3.2rem;

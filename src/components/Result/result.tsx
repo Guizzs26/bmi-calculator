@@ -38,7 +38,9 @@ const Result = ({
       case "Overweight":
         return styles.attention;
       case "Obesity Grade I":
+        return styles.danger;
       case "Obesity Grade II":
+        return styles.danger;
       case "Obesity Grade III":
         return styles.danger;
       default:

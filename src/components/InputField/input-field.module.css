@@ -20,12 +20,17 @@
   background-color: #3f3f46;
 }
 
-.inputField span {
+.inputField span,
+.icon {
   font-size: 1.2rem;
 
   padding: 0.6rem 1rem;
 
   color: #cbd5e1;
+}
+
+.icon {
+  font-size: 1.4rem;
 }
 
 .inputField input {

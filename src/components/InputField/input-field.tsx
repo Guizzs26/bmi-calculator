@@ -1,6 +1,7 @@
 import styles from "./input-field.module.css";
-
 import { ChangeEvent } from "react";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { InputFieldProps } from "./types/input.field.type.prop";
 
@@ -10,6 +11,7 @@ const InputField = ({
   value,
   onChange,
   unit,
+  icon,
 }: InputFieldProps): JSX.Element => {
   const handleChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
     onChange(Number(e.target.value));
@@ -20,6 +22,7 @@ const InputField = ({
       <label htmlFor={id}>{children}</label>
 
       <div className={styles.inputField}>
+        <FontAwesomeIcon icon={icon} className={styles.icon} />
         <input
           type="number"
           id={id}

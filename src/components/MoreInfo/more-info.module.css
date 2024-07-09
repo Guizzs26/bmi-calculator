@@ -8,10 +8,30 @@
 
   text-decoration: none;
 
+  display: inline-block;
+  margin-bottom: 4rem;
+
+  transition: all 0.3s ease;
+
   color: #7950f2;
 }
 
 .bmiLink:hover,
 .bmLink:active {
   color: #5f3dc4;
+}
+
+/*  */
+
+.notes {
+  line-height: 1.2;
+
+  display: flex;
+  flex-direction: column;
+
+  text-align: left;
+
+  gap: 1.2rem;
+
+  color: #e5dbff;
 }

@@ -8,6 +8,8 @@ import { getCategory } from "../../Helpers/getCategory";
 import { calculateBMI } from "../../Helpers/calculateBMI";
 import { calculateWeightRange } from "../../Helpers/calculateWeightRange";
 
+import { faWeight, faRulerVertical } from "@fortawesome/free-solid-svg-icons";
+
 import { InputField } from "../InputField/input-field";
 import { Result } from "../Result";
 import { MoreInfo } from "../MoreInfo";
@@ -48,6 +50,7 @@ const BMIForm = () => {
         value={weight}
         onChange={(value) => setWeight(Number(value))}
         unit="Kg"
+        icon={faWeight}
       >
         Weight in Kg
       </InputField>
@@ -57,6 +60,7 @@ const BMIForm = () => {
         value={height}
         onChange={(value) => setHeight(Number(value))}
         unit="Cm"
+        icon={faRulerVertical}
       >
         Height in Cm
       </InputField>
