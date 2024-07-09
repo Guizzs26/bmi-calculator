@@ -41,6 +41,10 @@
   text-align: start;
 }
 
+.weightRangeLabel {
+  white-space: nowrap;
+}
+
 .infoButton {
   width: 80%;
 

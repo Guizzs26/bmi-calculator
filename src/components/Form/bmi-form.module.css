@@ -4,7 +4,8 @@
   gap: 3.2rem;
 }
 
-.calculate {
+.calculate,
+.recalculate {
   width: 100%;
 
   font-size: 1.25rem;
@@ -22,6 +23,7 @@
   background-color: #6741d9;
 }
 
-.calculate:hover {
+.calculate:hover,
+.recalculate:hover {
   background-color: #5f3dc4;
 }

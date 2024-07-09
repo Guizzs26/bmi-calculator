@@ -17,8 +17,9 @@ import { MoreInfo } from "../MoreInfo";
 const BMIForm = () => {
   const [weight, setWeight] = useState<number>(0);
   const [height, setHeight] = useState<number>(0);
-  const [bmiResult, setBmiResult] = useState<number | null>(null);
+  const [bmiResult, setBmiResult] = useState<number>(0);
   const [category, setCategory] = useState<Category | null>(null);
+  const [showResult, setShowResult] = useState<boolean>(false);
 
   const handleCalculateBMI = () => {
     if (weight > 0 && height > 0) {
@@ -26,6 +27,7 @@ const BMIForm = () => {
 
       setBmiResult(bmiValue);
       setCategory(getCategory(bmiValue));
+      setShowResult(true);
     } else {
       alert("Please enter a valid weight and height");
     }
@@ -41,6 +43,14 @@ const BMIForm = () => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     handleCalculateBMI();
+  };
+
+  const handleReset = () => {
+    setWeight(0);
+    setHeight(0);
+    setBmiResult(0);
+    setCategory(null);
+    setShowResult(false);
   };
 
   return (
@@ -69,13 +79,19 @@ const BMIForm = () => {
         Calculate
       </button>
 
-      {bmiResult !== null && (
-        <Result
-          bmiResult={bmiResult}
-          category={category}
-          height={height}
-          onWeightRange={handleWeightRange}
-        />
+      {showResult && (
+        <>
+          <button onClick={handleReset} className={styles.recalculate}>
+            Re-Calculate
+          </button>
+
+          <Result
+            bmiResult={bmiResult}
+            category={category}
+            height={height}
+            onWeightRange={handleWeightRange}
+          />
+        </>
       )}
 
       <MoreInfo />
