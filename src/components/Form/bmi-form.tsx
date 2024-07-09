@@ -11,7 +11,6 @@ import { isValidNumber } from "../../Helpers/isValidNumber";
 
 import { InputField } from "../InputField/input-field";
 import { Result } from "../Result";
-import { MoreInfo } from "../MoreInfo";
 
 const BMIForm = () => {
   const [weight, setWeight] = useState<number | string>("");
@@ -97,8 +96,6 @@ const BMIForm = () => {
           />
         </>
       )}
-
-      <MoreInfo />
     </form>
   );
 };

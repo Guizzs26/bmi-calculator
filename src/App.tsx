@@ -5,6 +5,7 @@ import { FunctionComponent } from "react";
 import { Hero } from "./components/Hero";
 import { Title } from "./components/Title/index";
 import { BMIForm } from "./components/Form";
+import { MoreInfo } from "./components/MoreInfo";
 
 const App: FunctionComponent = () => {
   return (
@@ -14,6 +15,7 @@ const App: FunctionComponent = () => {
       <div className={styles.rightBox}>
         <Title />
         <BMIForm />
+        <MoreInfo />
       </div>
     </div>
   );
