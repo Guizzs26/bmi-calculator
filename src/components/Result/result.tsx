@@ -1,6 +1,8 @@
 import styles from "./result.module.css";
+import { useState } from "react";
 
 import { Category } from "../../Helpers/imc.type";
+import { InfoModal } from "../InfoModal";
 
 export type ResultProps = {
   bmiResult: number;
@@ -15,6 +17,16 @@ const Result = ({
   height,
   onWeightRange,
 }: ResultProps) => {
+  const [modalOpen, setModalOpen] = useState<boolean>(false);
+
+  const openModal = () => {
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
   const getClassByCategory = (category: Category | null) => {
     if (!category) return "";
 
@@ -25,7 +37,9 @@ const Result = ({
         return styles.normal;
       case "Overweight":
         return styles.attention;
-      case "Obesity":
+      case "Obesity Grade I":
+      case "Obesity Grade II":
+      case "Obesity Grade III":
         return styles.danger;
       default:
         return "";
@@ -38,7 +52,6 @@ const Result = ({
         <span className={`${styles.bmiValue} ${getClassByCategory(category)}`}>
           {bmiResult.toFixed(2)}
         </span>
-
         <span className={styles.bmiLabel}>Your BMI</span>
       </div>
 
@@ -60,6 +73,12 @@ const Result = ({
             {onWeightRange(height, category)}
           </span>
         </span>
+
+        <button onClick={openModal} className={styles.infoButton}>
+          More Info
+        </button>
+
+        <InfoModal isOpen={modalOpen} onClose={closeModal} />
       </div>
     </div>
   );

@@ -1,0 +1,112 @@
+.background {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal {
+  width: 80%;
+  max-width: 120rem;
+  max-height: 80vh;
+
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+  position: relative;
+  overflow-y: auto;
+}
+
+/* Modal Header */
+
+.modalHeader {
+  text-align: center;
+  padding-bottom: 2rem;
+}
+
+.heading {
+  font-size: 3.4rem;
+  font-weight: 700;
+
+  background: linear-gradient(
+    90deg,
+    rgba(85, 45, 217, 1) 47%,
+    rgba(153, 133, 210, 1) 100%
+  );
+  background-clip: border-box;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.closeModalBtn {
+  font-size: 2.4rem;
+
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  transition: all 0.3s ease;
+
+  border: none;
+  cursor: pointer;
+
+  color: #fff;
+  background: none;
+}
+
+.closeModalBtn:hover {
+  color: #9775fa;
+}
+
+/*  */
+
+.modalContent {
+  display: flex;
+
+  gap: 3rem;
+}
+
+.modalItem {
+  width: 25rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.modalItem img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.title {
+  font-size: 1.8rem;
+  color: #9775fa;
+}
+
+.range {
+  font-size: 1.3rem;
+  color: #b197fc;
+}
+
+.description {
+  font-size: 1.2rem;
+  line-height: 1.2;
+  color: #d0bfff;
+}

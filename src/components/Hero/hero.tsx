@@ -5,7 +5,7 @@ import { FunctionComponent } from "react";
 const Hero: FunctionComponent = (): JSX.Element => {
   return (
     <img
-      src="training.png"
+      src="calculator.png"
       alt="Two persons training"
       className={styles.heroImg}
     />
