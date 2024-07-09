@@ -1,8 +1,6 @@
 import styles from "./hero.module.css";
 
-import { FunctionComponent } from "react";
-
-const Hero: FunctionComponent = (): JSX.Element => {
+const Hero = () => {
   return (
     <img
       src="calculator.png"

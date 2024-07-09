@@ -14,7 +14,7 @@ const InputField = ({
   icon,
 }: InputFieldProps): JSX.Element => {
   const handleChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
-    onChange(Number(e.target.value));
+    onChange(e.target.value);
   };
 
   return (
@@ -24,7 +24,7 @@ const InputField = ({
       <div className={styles.inputField}>
         <FontAwesomeIcon icon={icon} className={styles.icon} />
         <input
-          type="number"
+          type="text"
           id={id}
           name={id}
           value={value}

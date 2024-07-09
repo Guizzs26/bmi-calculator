@@ -1,35 +1,39 @@
-// BMIForm.tsx
-
 import styles from "./bmi-form.module.css";
-import { FormEvent, useState } from "react";
+
+import { useState, FormEvent } from "react";
+import { faWeight, faRulerVertical } from "@fortawesome/free-solid-svg-icons";
 
 import { Category } from "../../Helpers/imc.type";
 import { getCategory } from "../../Helpers/getCategory";
 import { calculateBMI } from "../../Helpers/calculateBMI";
 import { calculateWeightRange } from "../../Helpers/calculateWeightRange";
-
-import { faWeight, faRulerVertical } from "@fortawesome/free-solid-svg-icons";
+import { isValidNumber } from "../../Helpers/isValidNumber";
 
 import { InputField } from "../InputField/input-field";
 import { Result } from "../Result";
 import { MoreInfo } from "../MoreInfo";
 
 const BMIForm = () => {
-  const [weight, setWeight] = useState<number>(0);
-  const [height, setHeight] = useState<number>(0);
+  const [weight, setWeight] = useState<number | string>("");
+  const [height, setHeight] = useState<number | string>("");
   const [bmiResult, setBmiResult] = useState<number>(0);
   const [category, setCategory] = useState<Category | null>(null);
   const [showResult, setShowResult] = useState<boolean>(false);
 
   const handleCalculateBMI = () => {
-    if (weight > 0 && height > 0) {
-      const bmiValue = calculateBMI(weight, height);
+    const weightValue =
+      typeof weight === "string" ? parseFloat(weight) : weight;
+    const heightValue =
+      typeof height === "string" ? parseFloat(height) : height;
+
+    if (isValidNumber(weightValue) && isValidNumber(heightValue)) {
+      const bmiValue = calculateBMI(weightValue, heightValue);
 
       setBmiResult(bmiValue);
       setCategory(getCategory(bmiValue));
       setShowResult(true);
     } else {
-      alert("Please enter a valid weight and height");
+      alert("Please enter valid numeric values for weight and height.");
     }
   };
 
@@ -46,8 +50,8 @@ const BMIForm = () => {
   };
 
   const handleReset = () => {
-    setWeight(0);
-    setHeight(0);
+    setWeight("");
+    setHeight("");
     setBmiResult(0);
     setCategory(null);
     setShowResult(false);
@@ -58,7 +62,7 @@ const BMIForm = () => {
       <InputField
         id="weight"
         value={weight}
-        onChange={(value) => setWeight(Number(value))}
+        onChange={(value) => setWeight(value)}
         unit="Kg"
         icon={faWeight}
       >
@@ -68,7 +72,7 @@ const BMIForm = () => {
       <InputField
         id="height"
         value={height}
-        onChange={(value) => setHeight(Number(value))}
+        onChange={(value) => setHeight(value)}
         unit="Cm"
         icon={faRulerVertical}
       >
@@ -88,7 +92,7 @@ const BMIForm = () => {
           <Result
             bmiResult={bmiResult}
             category={category}
-            height={height}
+            height={typeof height === "string" ? parseFloat(height) : height}
             onWeightRange={handleWeightRange}
           />
         </>
