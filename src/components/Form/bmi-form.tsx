@@ -41,7 +41,7 @@ const BMIForm = () => {
     height: number,
     category: Category | null
   ): string => {
-    return calculateWeightRange(height, category);
+    return calculateWeightRange(height, category, bmiResult);
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
