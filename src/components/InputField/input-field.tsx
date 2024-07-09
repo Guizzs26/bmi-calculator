@@ -5,7 +5,7 @@ import { ChangeEvent } from "react";
 import { InputFieldProps } from "./types/input.field.type.prop";
 
 const InputField = ({
-  label,
+  children,
   id,
   value,
   onChange,
@@ -17,7 +17,7 @@ const InputField = ({
 
   return (
     <div className={styles.inputBox}>
-      <label htmlFor={id}>{label}</label>
+      <label htmlFor={id}>{children}</label>
 
       <div className={styles.inputField}>
         <input

@@ -1,5 +1,5 @@
 export type InputFieldProps = {
-  label: string;
+  children: string;
   id: string;
   value: number;
   onChange: (value: number) => void;

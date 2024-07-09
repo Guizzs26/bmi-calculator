@@ -1,9 +1,12 @@
-import styles from "./bmi-form.module.css";
+// BMIForm.tsx
 
+import styles from "./bmi-form.module.css";
 import { FormEvent, useState } from "react";
 
 import { Category } from "../../Helpers/imc.type";
 import { getCategory } from "../../Helpers/getCategory";
+import { calculateBMI } from "../../Helpers/calculateBMI";
+import { calculateWeightRange } from "../../Helpers/calculateWeightRange";
 
 import { InputField } from "../InputField/input-field";
 import { Result } from "../Result";
@@ -17,8 +20,7 @@ const BMIForm = () => {
 
   const handleCalculateBMI = () => {
     if (weight > 0 && height > 0) {
-      const heightInMeters = height / 100;
-      const bmiValue = weight / (heightInMeters * heightInMeters);
+      const bmiValue = calculateBMI(weight, height);
 
       setBmiResult(bmiValue);
       setCategory(getCategory(bmiValue));
@@ -31,51 +33,33 @@ const BMIForm = () => {
     height: number,
     category: Category | null
   ): string => {
-    if (!category) return "";
-
-    const heightInMeters = height / 100;
-    const minWeight = (imc: number) => imc * heightInMeters * heightInMeters;
-    const maxWeight = (imc: number) => imc * heightInMeters * heightInMeters;
-
-    switch (category.title) {
-      case "Underweight":
-        return `< ${maxWeight(18.5).toFixed(2)} kg`;
-      case "Normal Weight":
-        return `${minWeight(18.5).toFixed(2)} - ${maxWeight(24.9).toFixed(
-          2
-        )} kg`;
-      case "Overweight":
-        return `${minWeight(25).toFixed(2)} - ${maxWeight(29.9).toFixed(2)} kg`;
-      case "Obesity":
-        return `> ${minWeight(30).toFixed(2)} kg`;
-      default:
-        return "";
-    }
+    return calculateWeightRange(height, category);
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
     handleCalculateBMI();
   };
 
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
       <InputField
-        label="Weight in Kg"
         id="weight"
         value={weight}
         onChange={(value) => setWeight(Number(value))}
         unit="Kg"
-      />
+      >
+        Weight in Kg
+      </InputField>
 
       <InputField
-        label="Height in Cm"
         id="height"
         value={height}
         onChange={(value) => setHeight(Number(value))}
         unit="Cm"
-      />
+      >
+        Height in Cm
+      </InputField>
 
       <button type="submit" className={styles.calculate}>
         Calculate
