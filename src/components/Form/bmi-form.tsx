@@ -1,10 +1,12 @@
 import styles from "./bmi-form.module.css";
+
 import { FormEvent, useState } from "react";
 
 import { Category } from "../../Helpers/imc.type";
 import { getCategory } from "../../Helpers/getCategory";
 
 import { InputField } from "../InputField/input-field";
+import { Result } from "../Result";
 
 const BMIForm = () => {
   const [weight, setWeight] = useState<number>(0);
@@ -24,7 +26,7 @@ const BMIForm = () => {
     }
   };
 
-  const getWeightRange = (
+  const handleWeightRange = (
     height: number,
     category: Category | null
   ): string => {
@@ -67,22 +69,24 @@ const BMIForm = () => {
       />
 
       <InputField
-        label="Height in cm"
+        label="Height in Cm"
         id="height"
         value={height}
         onChange={(value) => setHeight(Number(value))}
         unit="Cm"
       />
 
-      <button type="submit">Calculate</button>
+      <button type="submit" className={styles.calculate}>
+        Calculate
+      </button>
 
       {bmiResult !== null && (
-        <div className={styles.result}>
-          <h2>Result: </h2>
-          <p>Your BMI is: {bmiResult}</p>
-          <p>Category: {category?.title}</p>
-          <p>Intervalo de peso: {getWeightRange(height, category)}</p>
-        </div>
+        <Result
+          bmiResult={bmiResult}
+          category={category}
+          height={height}
+          onWeightRange={handleWeightRange}
+        />
       )}
     </form>
   );

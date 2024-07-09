@@ -11,6 +11,7 @@ export const categories: Category[] = [
   },
   {
     title: "Overweight",
+
     bmi: [25, 30],
   },
   {

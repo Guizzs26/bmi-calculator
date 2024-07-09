@@ -1,16 +1,15 @@
-import { FunctionComponent } from "react";
 import styles from "./App.module.css";
-import { Hero } from "./components/Hero";
 
+import { FunctionComponent } from "react";
+
+import { Hero } from "./components/Hero";
 import { Title } from "./components/Title/index";
 import { BMIForm } from "./components/Form";
 
-const App: FunctionComponent = (): JSX.Element => {
+const App: FunctionComponent = () => {
   return (
     <div className={styles.appContainer}>
-      <div className={styles.leftBox}>
-        <Hero />
-      </div>
+      <Hero />
 
       <div className={styles.rightBox}>
         <Title />

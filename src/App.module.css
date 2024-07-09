@@ -1,7 +1,14 @@
 .appContainer {
   display: flex;
   align-items: center;
-  gap: 3.2rem;
+}
 
-  border: 2px solid red;
+.rightBox {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+  padding: 3.2rem;
+
+  background-color: #262626;
+  border-radius: 8px;
 }

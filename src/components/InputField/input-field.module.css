@@ -1,0 +1,50 @@
+.inputBox label {
+  font-size: 1.3rem;
+  font-weight: 500;
+
+  display: inline-block;
+  margin-bottom: 0.4rem;
+
+  color: #cbd5e1;
+}
+
+.inputField {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-top: 3px;
+  padding: 0.3rem;
+  border-radius: 3px;
+
+  background-color: #3f3f46;
+}
+
+.inputField span {
+  font-size: 1.2rem;
+
+  padding: 0.6rem 1rem;
+
+  color: #cbd5e1;
+}
+
+.inputField input {
+  width: 100%;
+
+  font-size: 1.3rem;
+
+  padding: 0 0.5rem;
+  border: none;
+
+  color: #f8fafc;
+  background-color: transparent;
+}
+
+.inputField input::-webkit-outer-spin-button,
+.inputField input::-webkit-inner-spin-button {
+  appearance: none;
+}
+
+.inputField input:focus {
+  outline: none;
+}
