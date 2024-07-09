@@ -1,0 +1,33 @@
+/* Variables */
+
+:root {
+  --brand-color: #6741d9;
+  --hover-color: #5f3dc4;
+
+  --font-color: #f8f9fa;
+  --background-color: #212529;
+}
+
+/* Reset */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* General styles */
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 2rem;
+  font-family: sans-serif;
+  font-weight: 400;
+  line-height: 1;
+
+  color: var(--font-color);
+  background-color: var(--background-color);
+}
