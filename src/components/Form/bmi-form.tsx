@@ -7,6 +7,7 @@ import { getCategory } from "../../Helpers/getCategory";
 
 import { InputField } from "../InputField/input-field";
 import { Result } from "../Result";
+import { MoreInfo } from "../MoreInfo";
 
 const BMIForm = () => {
   const [weight, setWeight] = useState<number>(0);
@@ -88,6 +89,8 @@ const BMIForm = () => {
           onWeightRange={handleWeightRange}
         />
       )}
+
+      <MoreInfo />
     </form>
   );
 };

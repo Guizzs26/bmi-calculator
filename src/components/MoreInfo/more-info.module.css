@@ -1,0 +1,17 @@
+.moreInfo {
+  text-align: center;
+}
+
+.bmiLink:link,
+.bmiLink:visited {
+  font-size: 1.4rem;
+
+  text-decoration: none;
+
+  color: #7950f2;
+}
+
+.bmiLink:hover,
+.bmLink:active {
+  color: #5f3dc4;
+}

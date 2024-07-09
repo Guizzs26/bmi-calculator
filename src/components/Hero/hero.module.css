@@ -2,3 +2,9 @@
   width: 49.6rem;
   height: auto;
 }
+
+@media screen and (max-width: 500px) {
+  .heroImg {
+    display: none;
+  }
+}
