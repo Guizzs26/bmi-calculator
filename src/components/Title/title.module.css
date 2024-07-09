@@ -1,0 +1,25 @@
+.title {
+  font-size: 3.6rem;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+
+  position: relative;
+
+  margin-bottom: 4rem;
+}
+
+.title::after {
+  content: "";
+  width: 48%;
+  height: 3px;
+
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+
+  display: block;
+
+  border-radius: 3px;
+
+  background-color: #6741d9;
+}
