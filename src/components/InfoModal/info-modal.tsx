@@ -5,7 +5,7 @@ import { InfoModalProps } from "./types/info.modal.type.prop";
 import { Category } from "../../Helpers/imc.type";
 import { categories } from "../../Helpers/getCategory";
 
-const InfoModal = ({ isOpen, onClose }: InfoModalProps) => {
+const InfoModal = ({ isOpen, onClose, selectedCategory }: InfoModalProps) => {
   if (!isOpen) return null;
 
   return (
@@ -20,7 +20,14 @@ const InfoModal = ({ isOpen, onClose }: InfoModalProps) => {
 
         <div className={styles.modalContent}>
           {categories.map((category: Category) => (
-            <div className={styles.modalItem} key={category.title}>
+            <div
+              className={`${styles.modalItem} ${
+                selectedCategory?.title === category.title
+                  ? styles.selected
+                  : ""
+              }`}
+              key={category.title}
+            >
               <img src={category.image} alt={category.title} />
               <h2 className={styles.title}>{category.title}</h2>
               <p

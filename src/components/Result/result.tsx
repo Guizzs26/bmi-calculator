@@ -1,15 +1,8 @@
 import styles from "./result.module.css";
 import { useState } from "react";
-
+import { ResultProps } from "./types/result.type.prop";
 import { Category } from "../../Helpers/imc.type";
 import { InfoModal } from "../InfoModal";
-
-export type ResultProps = {
-  bmiResult: number;
-  category: Category | null;
-  height: number;
-  onWeightRange: (height: number, category: Category | null) => string;
-};
 
 const Result = ({
   bmiResult,
@@ -80,7 +73,11 @@ const Result = ({
           More Info
         </button>
 
-        <InfoModal isOpen={modalOpen} onClose={closeModal} />
+        <InfoModal
+          isOpen={modalOpen}
+          onClose={closeModal}
+          selectedCategory={category}
+        />
       </div>
     </div>
   );
